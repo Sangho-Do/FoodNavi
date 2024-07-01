@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import com.demo.domain.Board;
+import com.demo.domain.Users;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,13 +17,14 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoardScanVo {
-	private String[][] searchType = {{"title", "제목"}, {"content", "내용"}};
+public class UserScanVo {
+	private String[][] searchType = {{"name", "이름"}};
 	private String searchField = "";
 	private String searchWord = "";
-	private Page<Board> pageInfo = null;
-	private List<Board> boardList = null;
+	private Page<Users> pageInfo = null;
+	private List<Users> userList = null;
 	private String sortBy = "";
 	private String sortDirection = "";
 	private int pageMaxDisplay = 0;
+	
 }
