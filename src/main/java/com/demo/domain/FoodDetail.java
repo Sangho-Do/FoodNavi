@@ -3,11 +3,12 @@ package com.demo.domain;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,16 +25,21 @@ import lombok.ToString;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-public class Admin {
+public class FoodDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int aseq;
+	private int fdseq;
 	
-	@Column(length=50)
-	private String adminid;
+	private float kcal;
+	private float fat;
+	private float carb;
+	private float prt;
 	
-	@Column(length=100)
-	private String adminpw;
+	private String foodType;
+	private int n;
+
+	@OneToOne
+	@JoinColumn(name="fseq", nullable=false)
+	private Food food;
 	
-	private String name;
 }

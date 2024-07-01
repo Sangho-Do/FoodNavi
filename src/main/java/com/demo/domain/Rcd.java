@@ -3,11 +3,12 @@ package com.demo.domain;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,16 +25,17 @@ import lombok.ToString;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-public class Admin {
+public class Rcd {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int aseq;
+	private int rseq;
 	
-	@Column(length=50)
-	private String adminid;
+	@ManyToOne()
+	@JoinColumn(name="useq", nullable=false)
+	private Users user;
 	
-	@Column(length=100)
-	private String adminpw;
+	@ManyToOne()
+	@JoinColumn(name="fseq", nullable=false)
+	private Food food;
 	
-	private String name;
 }

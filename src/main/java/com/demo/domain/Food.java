@@ -1,13 +1,11 @@
 package com.demo.domain;
 
+import java.util.List;
+
+import jakarta.persistence.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,16 +22,17 @@ import lombok.ToString;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-public class Admin {
+public class Food {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int aseq;
+	private int fseq;
 	
-	@Column(length=50)
-	private String adminid;
-	
-	@Column(length=100)
-	private String adminpw;
-	
-	private String name;
+	private String name;	
+	private String img;
+	private String useyn;
+
+	@ToString.Exclude
+	@OneToOne(mappedBy="food", fetch=FetchType.EAGER)
+	private FoodDetail foodDetail;
+
 }
