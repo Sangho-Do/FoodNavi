@@ -12,7 +12,7 @@ MBC 아카데미 빅데이터 활용 실무 프로젝트 기반 JAVA 풀스택 �
 <hr>
 
 ### 메인 화면
-![index]([https://github.com/Sangho-Do/FoodNavi/assets/158795073/17177f44-f5c0-40d5-9d29-69884235ff10])
+![index](https://github.com/Sangho-Do/FoodNavi/assets/158795073/17177f44-f5c0-40d5-9d29-69884235ff10)
 
 <hr>
 
