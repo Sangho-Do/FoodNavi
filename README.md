@@ -17,7 +17,7 @@ MBC 아카데미 빅데이터 활용 실무 프로젝트 기반 JAVA 풀스택 �
 <hr>
 
 ### 추천 화면
-![푸드내비추천](https://github.com/Sangho-Do/FoodNavi/assets/158795073/2040256a-a028-4a3a-b0b6-fdca7797c692)
+![푸드내비추천](https://github.com/Sangho-Do/FoodNavi/blob/main/recommend_preview.jpg)
 
 <hr>
 
