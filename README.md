@@ -22,9 +22,11 @@ MBC 아카데미 빅데이터 활용 실무 프로젝트 기반 JAVA 풀스택 �
 <hr>
 
 ### 요구사항 정의서
-[FoodNavi 요구사항정의서.pdf](https://github.com/user-attachments/files/16050804/FoodNavi.pdf)
+[FoodNavi (요구사항 정의서).pdf](https://github.com/user-attachments/files/16085802/FoodNavi.pdf)
+
 
 ### 포트폴리오
-[FoodNavi.pdf](https://github.com/user-attachments/files/16050810/FoodNavi.pdf)
+[FoodNavi (포트폴리오).pdf](https://github.com/user-attachments/files/16085804/FoodNavi.pdf)
+
 
 
