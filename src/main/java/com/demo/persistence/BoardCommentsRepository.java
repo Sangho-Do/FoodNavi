@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.domain.Comments;
@@ -25,7 +26,7 @@ public interface BoardCommentsRepository extends JpaRepository<Comments, Integer
 	void deleteByBoardBseq(int bseq);
 
 	@Query("SELECT COUNT(c) FROM Comments c WHERE c.board.bseq = :bseq")
-	int countByBoardBseq(int bseq);
+	int countByBoardBseq(@Param("bseq") int bseq);
 
 	@Query("SELECT c FROM Comments c " +
 			"WHERE c.user.useq = ?1 " +  // 공백 추가

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.demo.domain.Food;
 import com.demo.domain.Rcd;
@@ -17,5 +18,5 @@ public interface RcdRepository extends JpaRepository<Rcd, Integer> {
 	public List<Rcd> findByUser(Users user);
 	
 	@Query("SELECT food From Food food, Rcd rcd, Users user WHERE food = rcd.food AND user = rcd.user ")
-	public List<Food> getRcdFoodListByUser(Users user);
+	public List<Food> getRcdFoodListByUser(@Param("user") Users user);
 }

@@ -338,7 +338,7 @@ public class FoodRecomController {
     }
 
     @PostMapping("/loading")
-    public String loading(@RequestParam String mealTime, HttpSession session, 
+    public String loading(@RequestParam(value = "mealTime") String mealTime, HttpSession session, 
     		@RequestParam(value = "page", defaultValue = "0") int page,
             @RequestParam(value = "size", defaultValue = "20") int size,
             @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
@@ -359,8 +359,8 @@ public class FoodRecomController {
             @RequestParam(value = "allergys", defaultValue = "") String[] allergys,
             @RequestParam(value = "allergyEtc", defaultValue = "") String allergyEtc,
             @RequestParam(value = "vegetarian", defaultValue = "0") String vegetarian) {
-        session.setAttribute("mealTime", mealTime);
-
+    	session.setAttribute("mealTime", mealTime);
+    	System.out.println(mealTime);
         // 세션에서 사용자 정보 가져오기
         Users user = (Users) session.getAttribute("loginUser");
         // 세션에 로그인 정보가 없는 경우

@@ -12,8 +12,8 @@ import java.util.List;
 
 public interface ExerciseRepository extends JpaRepository<Exercise, Integer> {
     @Query(value = "SELECT e FROM Exercise e "
-    + "WHERE e.user = :user ")
-    List<Exercise> getExerciseListByUserAndType(Users user);
+    + "WHERE e.user = :user")
+    List<Exercise> getExerciseListByUserAndType(@Param("user") Users user);
 
     @Query("SELECT e FROM Exercise e WHERE e.exerciseDate >= :startDate")
     List<Exercise> findLastWeekExercises(@Param("startDate") Timestamp startDate);

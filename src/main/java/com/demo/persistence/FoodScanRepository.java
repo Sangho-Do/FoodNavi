@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.demo.domain.Food;
 
@@ -55,11 +56,19 @@ public interface FoodScanRepository extends JpaRepository<Food, Integer> {
 			+ "ORDER BY r1.name ",
 			nativeQuery=true)
 	public List<Food> getFoodScanList(
-			String searchName, String searchIngredient, String banName, String banIngredient, 
-			float kcalMin, float kcalMax, float carbMin, float carbMax, float prtMin, float prtMax, float fatMin, float fatMax,	
-			float ratioCarbMin, float ratioCarbMax, float ratioPrtMin, float ratioPrtMax, float ratioFatMin, float ratioFatMax, 
-			String no_egg, String no_milk, String no_bean, String no_shellfish, String allergyEtc, 
-			int vegetarian, String foodType);
+			@Param("searchName") String searchName, @Param("searchIngredient") String searchIngredient, 
+			@Param("banName") String banName, @Param("banIngredient") String banIngredient, 
+			@Param("kcalMin") float kcalMin, @Param("kcalMax") float kcalMax, 
+			@Param("carbMin") float carbMin, @Param("carbMax") float carbMax, 
+			@Param("prtMin") float prtMin, @Param("prtMax") float prtMax, 
+			@Param("fatMin") float fatMin, @Param("fatMax") float fatMax,	
+			@Param("ratioCarbMin") float ratioCarbMin, @Param("ratioCarbMax") float ratioCarbMax, 
+			@Param("ratioPrtMin") float ratioPrtMin, @Param("ratioPrtMax") float ratioPrtMax, 
+			@Param("ratioFatMin") float ratioFatMin, @Param("ratioFatMax") float ratioFatMax, 
+			@Param("no_egg") String no_egg, @Param("no_milk") String no_milk, 
+			@Param("no_bean") String no_bean, @Param("no_shellfish") String no_shellfish,
+			@Param("allergyEtc") String allergyEtc, @Param("vegetarian") int vegetarian, 
+			@Param("foodType") String foodType);
 	
 	
 	@Query(value="SELECT r1.* FROM "
@@ -102,12 +111,21 @@ public interface FoodScanRepository extends JpaRepository<Food, Integer> {
 			+ "ORDER BY r1.name ",
 			nativeQuery=true)
 	public List<Food> getFoodRecommendList(
-			String searchName, String searchIngredient, String banName, String banIngredient, 
-			String morning, String lunch, String dinner, String snack, 
-			float kcalMin, float kcalMax, float carbMin, float carbMax, float prtMin, float prtMax, float fatMin, float fatMax,	
-			float ratioCarbMin, float ratioCarbMax, float ratioPrtMin, float ratioPrtMax, float ratioFatMin, float ratioFatMax, 
-			String no_egg, String no_milk, String no_bean, String no_shellfish, String allergyEtc, 
-			int vegetarian, String foodType);
+			@Param("searchName") String searchName, @Param("searchIngredient") String searchIngredient, 
+			@Param("banName") String banName, @Param("banIngredient") String banIngredient, 
+			@Param("morning") String morning, @Param("lunch") String lunch, 
+			@Param("dinner") String dinner, @Param("snack") String snack, 
+			@Param("kcalMin") float kcalMin, @Param("kcalMax") float kcalMax, 
+			@Param("carbMin") float carbMin, @Param("carbMax") float carbMax, 
+			@Param("prtMin") float prtMin, @Param("prtMax") float prtMax, 
+			@Param("fatMin") float fatMin, @Param("fatMax") float fatMax,	
+			@Param("ratioCarbMin") float ratioCarbMin, @Param("ratioCarbMax") float ratioCarbMax, 
+			@Param("ratioPrtMin") float ratioPrtMin, @Param("ratioPrtMax") float ratioPrtMax, 
+			@Param("ratioFatMin") float ratioFatMin, @Param("ratioFatMax") float ratioFatMax, 
+			@Param("no_egg") String no_egg, @Param("no_milk") String no_milk, 
+			@Param("no_bean") String no_bean, @Param("no_shellfish") String no_shellfish, 
+			@Param("allergyEtc") String allergyEtc, @Param("vegetarian") int vegetarian, 
+			@Param("foodType") String foodType);
 	
 	
 	@Query(value=" "
@@ -115,7 +133,9 @@ public interface FoodScanRepository extends JpaRepository<Food, Integer> {
 			+ "WHERE Food.fseq = History.fseq "
 			+ "AND History.meal_Type IN (:morning, :lunch, :dinner, :snack) ", 
 			nativeQuery=true)
-	public int getFoodCountByMealTypeInHistory(String morning, String lunch, String dinner, String snack);
+	public int getFoodCountByMealTypeInHistory(
+			@Param("morning") String morning, @Param("lunch") String lunch, 
+			@Param("dinner") String dinner, @Param("snack") String snack);
 
 	@Query(value="SELECT f FROM Food f WHERE f.useyn = 'y'")
 	public List<Food> getAllByFood();
